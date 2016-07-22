@@ -13,12 +13,17 @@ namespace Assignment_4_Part_2
     {
         static void Main(string[] args)
         {
+            //Variables and Lists
             string menuSwitch;
             string reassign;
             List<string> EmptySeats = new List<string>
             { "First Class", "First Class", "First Class", "First Class", "First Class",
             "Economy","Economy","Economy","Economy","Economy",};
             List<string> AssignedSeats = new List<string> { };
+
+            /*Start marks the start of the do-while loop that runs the selection menu, and functions as a 
+             * point to return to when the program must redirect to the selection menu
+             */ 
 
         Start:
   
@@ -32,10 +37,15 @@ namespace Assignment_4_Part_2
                 //switch reads the menuSwitch variable
                 switch (menuSwitch)
                 {
-                    //if "1" is entered, 
+                    /*if "1" is entered, begins if-else statement to check if there is First Class string
+                     * in the EmptySeats list
+                     */
                     case "1":
                         Console.Clear();
-                        
+
+                        /*If EmptySeats list contains an First Class string, removes an First Class string  
+                         * from Empty Seats and adds one to AssignedSeats list
+                         */
                         if (EmptySeats.Contains("First Class"))
                         {
                         EmptySeats.Remove("First Class");
@@ -51,6 +61,10 @@ namespace Assignment_4_Part_2
                             Reassign1:
                             Console.Write("There are no remaining First Class seats, would you like to be placed in the Economy section? Enter 'yes' or'no' to choose: ");
                             reassign = Console.ReadLine();
+
+                            /*another if-else statement, reads "reassign" variable based on user input
+                             * redirects to case 1, redirects to Start menu or returns to user input of "reassign variable"
+                             */
                             if (reassign == "yes")
                             {
                                 goto case "2";
@@ -70,10 +84,16 @@ namespace Assignment_4_Part_2
                             }
                         }
 
+                    /*if "2" is entered, begins if-else statement to check if there is Economy string
+                     * in the EmptySeats list
+                     */
                     case "2":
 
                         Console.Clear();
 
+                        /*If EmptySeats list contains an Economy string, removes an Economy string from Empty Seats
+                         * and adds one to AssignedSeats list
+                         */ 
                         if (EmptySeats.Contains("Economy"))
                         {
                             EmptySeats.Remove("Economy");
@@ -89,6 +109,10 @@ namespace Assignment_4_Part_2
                             Reassign2:
                             Console.Write("There are no remaining Economy seats, would you like to be placed in the First Class section? Enter 'yes' or'no' to choose: ");
                             reassign = Console.ReadLine();
+
+                            /*another if-else statement, reads "reassign" variable based on user input
+                             * redirects to case 1, redirects to Start menu or returns to user input of "reassign variable"
+                             */
                             if (reassign == "yes")
                             {
                                 goto case "1";
